@@ -11,7 +11,7 @@ bot = telebot.TeleBot(config.token)
 def lesson(message):
     response = requests.get(config.site)
     res = re.search(r'Занятия.+<br', str(response.text))
-    bot.send_message(message.chat.id, res[0:-3])
+    bot.send_message(message.chat.id, res.group(0)[0:-3])
 
 
 if __name__ == '__main__':

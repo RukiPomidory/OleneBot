@@ -18,6 +18,7 @@ def lesson(message):
 def test(message):
     response = requests.get(config.site)
     bot.send_message(message.chat.id, response.text)
+    bot.send_message(message.chat.id, 'tested')
 
 
 if __name__ == '__main__':

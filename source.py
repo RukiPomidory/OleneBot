@@ -14,5 +14,11 @@ def lesson(message):
     bot.send_message(message.chat.id, res.group(0)[0:-3])
 
 
+@bot.message_handler(commands=['test'])
+def test(message):
+    response = requests.get(config.site)
+    bot.send_message(message.chat.id, response.text)
+
+
 if __name__ == '__main__':
     bot.polling()
